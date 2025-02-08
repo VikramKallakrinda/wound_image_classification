@@ -1,0 +1,111 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    background-image: url('background.jpg');
+    
+    background-position: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+
+h1, h2 {
+    color: #0056b3;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.output-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fafafa;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.output-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+p {
+    margin: 10px 0;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.85em; /* Small font size for typical footer styling */
+    font-family: Arial, sans-serif;
+    color: black;
+    background-color: transparent; /* Fully transparent background */
+    padding: 10px 0;
+    backdrop-filter: blur(10px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle transparent top border */
+}
+
+footer p {
+    margin: 4px 0;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: blue; /* Slightly darker on hover */
+    text-decoration: underline;
+}
+  

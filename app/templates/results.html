@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='results.css') }}">
+</head>
+    
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <p>{{ message }}</p>
+
+        <!-- Section for Downloading Processed Results -->
+        <h2>Download Processed Results</h2>
+        <button onclick="window.location.href='{{ url_for('download', folder_type=folder_type, folder_name=folder_name) }}'">Download Zip</button>
+        <br><br>
+        <button onclick="window.location.href='/'">Upload More Images</button>
+        <hr>
+
+        <!-- Section for Displaying Results (only for single image uploads) -->
+        {% if folder_type == 'single' %}
+            <h2>Processed Images</h2>
+            {% if outputs %}
+                <div class="results-container">
+                    {% for output in outputs %}
+                        <div class="output-item">
+                            <!-- Display Comparison Image -->
+                            <img src="{{ url_for('serve_image', folder_name=folder_name, filename=output[2].replace('\\', '/').split('/')[-1]) }}" alt="Comparison Image" style="width: 550px; height: 300px;">
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No results to display.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Vikram Kallakrinda & VSV Abhiram. All rights reserved.</p>
+        <p>Contact us: 
+            <a href="mailto:kk3795@srmist.edu.in">kk3795@srmist.edu.in</a> | 
+            <a href="mailto:vv8234@srmist.edu.in">vv8234@srmist.edu.in</a>
+        </p>
+    </footer>
+</body>
+</html>

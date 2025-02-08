@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wound Image Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Wound Image Segmentation & Classification</h1>
+        <p class="description">Your one-stop solution for wound image analysis.</p>
+        <button class="start-button" onclick="showOptions()">Start</button>
+        
+        <div id="options" class="hidden">
+            <h2>Choose one of these:</h2>
+            <button class="option-button" onclick="showUpload('single')">Single Image</button>
+            <button class="option-button" onclick="showUpload('multi')">Multi Image (Zip)</button>
+        </div>
+
+        <div id="upload-section" class="hidden">
+            <h2>Upload Your Files Here</h2>
+            <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="file-input" required>
+                <input type="hidden" name="upload_type" id="upload-type-input">
+                <button class="submit-button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showOptions() {
+            document.getElementById('options').classList.remove('hidden');
+        }
+
+        function showUpload(type) {
+            const uploadSection = document.getElementById('upload-section');
+            uploadSection.classList.remove('hidden');
+            const fileInput = document.getElementById('file-input');
+            const uploadTypeInput = document.getElementById('upload-type-input');
+
+            if (type === 'multi') {
+                fileInput.setAttribute('accept', '.zip'); // Accept zip files only
+                uploadTypeInput.value = 'multi'; // Set upload type
+                document.getElementById('estimated-time').classList.remove('hidden');
+            } else {
+                fileInput.setAttribute('accept', 'image/*'); // Accept image files only
+                uploadTypeInput.value = 'single'; // Set upload type
+                document.getElementById('estimated-time').classList.add('hidden');
+            }
+        }
+    </script>
+
+<footer>
+    <p>&copy; 2025 Vikram Kallakrinda & VSV Abhiram. All rights reserved.</p>
+    <p>Contact us: 
+      <a href="mailto:kk3795@srmist.edu.in">kk3795@srmist.edu.in</a> | 
+      <a href="mailto:vv8234@srmist.edu.in">vv8234@srmist.edu.in</a>
+    </p>
+    
+  </footer>
+</body>
+</html>
